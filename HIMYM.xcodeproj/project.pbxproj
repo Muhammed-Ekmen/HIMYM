@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		99530CDB2A549B4000AEB796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99530CDA2A549B4000AEB796 /* AppDelegate.swift */; };
 		99530CDD2A549B4000AEB796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99530CDC2A549B4000AEB796 /* SceneDelegate.swift */; };
-		99530CDF2A549B4000AEB796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99530CDE2A549B4000AEB796 /* ViewController.swift */; };
 		99530CE22A549B4000AEB796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99530CE02A549B4000AEB796 /* Main.storyboard */; };
 		99530CE42A549B4100AEB796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99530CE32A549B4100AEB796 /* Assets.xcassets */; };
 		99530CE72A549B4100AEB796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99530CE52A549B4100AEB796 /* LaunchScreen.storyboard */; };
+		99530CF72A54A55B00AEB796 /* characters.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99530CF62A54A55B00AEB796 /* characters.plist */; };
+		99530CF92A54AB8000AEB796 /* ModelOfCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99530CF82A54AB8000AEB796 /* ModelOfCharacters.swift */; };
+		99530CFB2A54AE0B00AEB796 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99530CFA2A54AE0B00AEB796 /* StorageManager.swift */; };
+		99530CFD2A54AE1E00AEB796 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99530CFC2A54AE1E00AEB796 /* enums.swift */; };
+		99530CFF2A54B09C00AEB796 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99530CFE2A54B09C00AEB796 /* Repo.swift */; };
+		99530D012A54BF6C00AEB796 /* CharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99530D002A54BF6C00AEB796 /* CharactersTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		99530CD72A549B4000AEB796 /* HIMYM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HIMYM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99530CDA2A549B4000AEB796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99530CDC2A549B4000AEB796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		99530CDE2A549B4000AEB796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		99530CE12A549B4000AEB796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99530CE32A549B4100AEB796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99530CE62A549B4100AEB796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99530CE82A549B4100AEB796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99530CF62A54A55B00AEB796 /* characters.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = characters.plist; path = DataSource/characters.plist; sourceTree = "<group>"; };
+		99530CF82A54AB8000AEB796 /* ModelOfCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelOfCharacters.swift; sourceTree = "<group>"; };
+		99530CFA2A54AE0B00AEB796 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		99530CFC2A54AE1E00AEB796 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
+		99530CFE2A54B09C00AEB796 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		99530D002A54BF6C00AEB796 /* CharactersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +68,13 @@
 			children = (
 				99530CDA2A549B4000AEB796 /* AppDelegate.swift */,
 				99530CDC2A549B4000AEB796 /* SceneDelegate.swift */,
-				99530CDE2A549B4000AEB796 /* ViewController.swift */,
 				99530CE02A549B4000AEB796 /* Main.storyboard */,
+				99530D002A54BF6C00AEB796 /* CharactersTableViewController.swift */,
+				99530CFE2A54B09C00AEB796 /* Repo.swift */,
+				99530CFA2A54AE0B00AEB796 /* StorageManager.swift */,
+				99530CFC2A54AE1E00AEB796 /* enums.swift */,
+				99530CF82A54AB8000AEB796 /* ModelOfCharacters.swift */,
+				99530CF62A54A55B00AEB796 /* characters.plist */,
 				99530CE32A549B4100AEB796 /* Assets.xcassets */,
 				99530CE52A549B4100AEB796 /* LaunchScreen.storyboard */,
 				99530CE82A549B4100AEB796 /* Info.plist */,
@@ -127,6 +142,7 @@
 			files = (
 				99530CE72A549B4100AEB796 /* LaunchScreen.storyboard in Resources */,
 				99530CE42A549B4100AEB796 /* Assets.xcassets in Resources */,
+				99530CF72A54A55B00AEB796 /* characters.plist in Resources */,
 				99530CE22A549B4000AEB796 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +154,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99530CDF2A549B4000AEB796 /* ViewController.swift in Sources */,
+				99530CFF2A54B09C00AEB796 /* Repo.swift in Sources */,
+				99530CF92A54AB8000AEB796 /* ModelOfCharacters.swift in Sources */,
 				99530CDB2A549B4000AEB796 /* AppDelegate.swift in Sources */,
+				99530CFB2A54AE0B00AEB796 /* StorageManager.swift in Sources */,
 				99530CDD2A549B4000AEB796 /* SceneDelegate.swift in Sources */,
+				99530D012A54BF6C00AEB796 /* CharactersTableViewController.swift in Sources */,
+				99530CFD2A54AE1E00AEB796 /* enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
