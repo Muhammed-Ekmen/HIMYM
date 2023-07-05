@@ -17,7 +17,7 @@ Important topics for this project:
  
  -> CREATING DATA SOURCE WITH .PLIST FILE
  
- [DESCRIPTION]
+ [DESCRIPTION]you
  Plist is kind of the speacila file. its full meaning is 'property list'. You can think similar to json.
  
  [USAGE]
@@ -46,8 +46,14 @@ Important topics for this project:
  
  -> CREATE DETAIL VIEW
  
- 173.video
+ 173.video and 175.vidoe
  
+ So, Actualy it is very simple. Everythink goes on lines. for example, you wnats to add profile Image. Separete the lines
+ and set up only 1 row. After that, adjust the row heigth and add image view or label etc. That's all.
+ 
+ 
+ 
+ -> Complicated segue usage.
  
 */
 
@@ -88,4 +94,24 @@ class CharactersTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: SegueKeys.detailScreen.rawValue, sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let characterIndex:Int? = self.tableView.indexPathForSelectedRow?.row
+        let segueInfo:String? = segue.identifier
+        
+        if segueInfo == SegueKeys.detailScreen.rawValue{
+            if let detailViewCtrl:DetailTableViewController = segue.destination as? DetailTableViewController{
+                if characterIndex != nil && IRepo.shared.characters != nil { detailViewCtrl.characterModel = IRepo.shared.characters![characterIndex!] }
+            }
+        }
+        
+    }
+    
+    
 }

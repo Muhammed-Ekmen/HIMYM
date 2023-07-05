@@ -14,3 +14,5 @@ enum StorageErrors:Error{
 }
 
 enum StorageFiles:String{case characters}
+
+enum SegueKeys:String{case detailScreen}
