@@ -8,16 +8,48 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "02D1383B-B8FA-4E4D-857F-223D08F6FA28"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HIMYM/CharactersTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "initCharacters()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "02D1383B-B8FA-4E4D-857F-223D08F6FA28 - 21ee20cad54d84c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "dummyList.getter : Swift.Array&lt;HIMYM.ModelOfCharacters&gt;"
+                  moduleName = "HIMYM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/semihekmen/Documents/GitHub/HIMYM/HIMYM/CharactersTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "02D1383B-B8FA-4E4D-857F-223D08F6FA28 - 21ee20cad54d8417"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "dummyList.getter : Swift.Array&lt;HIMYM.ModelOfCharacters&gt;"
+                  moduleName = "HIMYM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/semihekmen/Documents/GitHub/HIMYM/HIMYM/CharactersTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

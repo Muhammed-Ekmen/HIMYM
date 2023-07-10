@@ -61,6 +61,25 @@ Important topics for this project:
  
  -> Add Favorite Action
  
+ 
+ 
+ -> Sorted Character List
+ 
+ our aim is learn more array function and add section header on table view and mini menu at the right side.
+ 
+ +firstly, we need to crate and list to keep first letter each model name. So, we have cxreated dummy list and data list on initCharacter function and IRepo.
+ we have used the set type collection.
+ 
+ + after that, we have created one more time array to keep sectioned list. that list is nested lists which keep inside model lists. CK6
+ 
+ + when you wna tot reach section index (NOT ROW INDEX) you can acces with section params CK7
+ 
+ + in additon , we gotta chagne the cell function/. CK8
+ 
+ + time to create section title. So, override tableView fucntion and just use it. CK9
+ 
+ + look at the CK10. that is ready function from swift develoeprs. just take it with a list to write the right side.
+ 
 */
 
 
@@ -80,14 +99,16 @@ class CharactersTableViewController: UITableViewController {
             return data.compactMap {ModelOfCharacters(modelData: $0)}
         }
         
-        var userSectionHeaders:[String] {
+        var userSectionHeaders:[String] {            // CK5
             let firstLetters = dummyList.map {String($0.name.prefix(1))}
             let reduceBinaryDatas = Set(firstLetters)
             return Array(reduceBinaryDatas).sorted()
         }
         
+        IRepo.shared.userSectionHeaders = userSectionHeaders // CK5
+        
        
-        var sectionedCharacters:[[ModelOfCharacters]] {
+        var sectionedCharacters:[[ModelOfCharacters]] {          // CK6
             return userSectionHeaders.map {characterHeader in
                 let filteredCharacters = dummyList.filter {String($0.name.prefix(1)) == characterHeader}
                 return filteredCharacters.sorted(by: {  String($0.name.prefix(1)) < String($1.name.prefix(1)) })
@@ -103,7 +124,7 @@ class CharactersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return IRepo.shared.characters![section].count ?? 0
+        return IRepo.shared.characters![section].count          // CK7
     }
     
     
@@ -117,7 +138,7 @@ class CharactersTableViewController: UITableViewController {
 //        }
 //
         //AFTER SORTED CHARACTER LIST
-        let exaModel:ModelOfCharacters? = (IRepo.shared.characters?[indexPath.section][indexPath.row])
+        let exaModel:ModelOfCharacters? = (IRepo.shared.characters?[indexPath.section][indexPath.row])      // CK8
         if exaModel != nil{
             cell.textLabel?.text = exaModel?.name
             cell.detailTextLabel?.text = exaModel?.surname
@@ -145,5 +166,13 @@ class CharactersTableViewController: UITableViewController {
         
     }
     
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {       // CK9
+        return IRepo.shared.userSectionHeaders
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {     // CK10
+        let letter:String? = IRepo.shared.userSectionHeaders?[section]
+        return letter != nil ? IRepo.shared.userSectionHeaders![section] : nil
+    }
     
 }

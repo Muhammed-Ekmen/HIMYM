@@ -14,4 +14,5 @@ class IRepo{
     
 //    var characters:[ModelOfCharacters]?
     var characters:[[ModelOfCharacters]]?
+    var userSectionHeaders:[String]?
 }
