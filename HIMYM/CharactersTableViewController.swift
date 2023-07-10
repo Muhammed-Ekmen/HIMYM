@@ -53,7 +53,13 @@ Important topics for this project:
  
  
  
- -> Complicated segue usage.
+ -> Complicated segue usage. CK4
+ 
+ your UI has more than one routes. So, you always take segue identifier and roting according to the identifier.
+ 
+ -> Sort the Characters and show the UI with right panel.
+ 
+ -> Add Favorite Action
  
 */
 
@@ -68,46 +74,72 @@ class CharactersTableViewController: UITableViewController {
     }
     
     private func initCharacters(){
+        
         var dummyList:[ModelOfCharacters] {
             let data = try! StorageManager.shared.fetchData(fileName: StorageFiles.characters.rawValue, fileExtention: "plist")
             return data.compactMap {ModelOfCharacters(modelData: $0)}
         }
-        IRepo.shared.characters = dummyList
+        
+        var userSectionHeaders:[String] {
+            let firstLetters = dummyList.map {String($0.name.prefix(1))}
+            let reduceBinaryDatas = Set(firstLetters)
+            return Array(reduceBinaryDatas).sorted()
+        }
+        
+       
+        var sectionedCharacters:[[ModelOfCharacters]] {
+            return userSectionHeaders.map {characterHeader in
+                let filteredCharacters = dummyList.filter {String($0.name.prefix(1)) == characterHeader}
+                return filteredCharacters.sorted(by: {  String($0.name.prefix(1)) < String($1.name.prefix(1)) })
+            }
+        }
+        
+        IRepo.shared.characters = sectionedCharacters
     }
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return IRepo.shared.characters?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return IRepo.shared.characters?.count ?? 0
+        return IRepo.shared.characters![section].count ?? 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "custom_cell", for: indexPath) // CK3
-        cell.textLabel?.text = IRepo.shared.characters?[indexPath.row].name
-        cell.detailTextLabel?.text = IRepo.shared.characters?[indexPath.row].surname
-        if IRepo.shared.characters?[indexPath.row].imageCode != nil {
-            if let image = UIImage(named: (IRepo.shared.characters?[indexPath.row].imageCode)!) { cell.imageView?.image = image }   // CK1
+        // BEFORE THE SORTED CHARACTER LIST
+//        cell.textLabel?.text = IRepo.shared.characters?[indexPath.row].name
+//        cell.detailTextLabel?.text = IRepo.shared.characters?[indexPath.row].surname
+//        if IRepo.shared.characters?[indexPath.row].imageCode != nil {
+//            if let image = UIImage(named: (IRepo.shared.characters?[indexPath.row].imageCode)!) { cell.imageView?.image = image }   // CK1
+//        }
+//
+        //AFTER SORTED CHARACTER LIST
+        let exaModel:ModelOfCharacters? = (IRepo.shared.characters?[indexPath.section][indexPath.row])
+        if exaModel != nil{
+            cell.textLabel?.text = exaModel?.name
+            cell.detailTextLabel?.text = exaModel?.surname
+            if exaModel?.imageCode != nil {
+                if let image = UIImage(named: (exaModel?.imageCode)!) { cell.imageView?.image = image }   // CK1
+            }
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         performSegue(withIdentifier: SegueKeys.detailScreen.rawValue, sender: self)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let characterIndex:Int? = self.tableView.indexPathForSelectedRow?.row
-        let segueInfo:String? = segue.identifier
-        
+        let characterSectionIndex:Int? = self.tableView.indexPathForSelectedRow?.section
+        let segueInfo:String? = segue.identifier     //CK4
         if segueInfo == SegueKeys.detailScreen.rawValue{
             if let detailViewCtrl:DetailTableViewController = segue.destination as? DetailTableViewController{
-                if characterIndex != nil && IRepo.shared.characters != nil { detailViewCtrl.characterModel = IRepo.shared.characters![characterIndex!] }
+                if characterIndex != nil && IRepo.shared.characters != nil && characterSectionIndex != nil { detailViewCtrl.characterModel = IRepo.shared.characters![characterSectionIndex!][characterIndex!]}
             }
         }
         

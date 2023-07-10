@@ -12,5 +12,6 @@ class IRepo{
     private init(){}
     static let shared:IRepo = IRepo()
     
-    var characters:[ModelOfCharacters]?
+//    var characters:[ModelOfCharacters]?
+    var characters:[[ModelOfCharacters]]?
 }
